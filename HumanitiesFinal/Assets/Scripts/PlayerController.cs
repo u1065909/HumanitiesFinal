@@ -30,26 +30,28 @@ public class PlayerController : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        if (player.isDead)
-            Destroy(this);
-        if (Input.GetKey("a") || Input.GetKey(KeyCode.LeftArrow))
-            Move(false);
-        else if (Input.GetKey("d") || Input.GetKey(KeyCode.RightArrow))
-            Move(true);
-    
-        if (Input.GetKeyDown(KeyCode.Space) && !isJumping && isGrounded())
+        if(!player.isDead)
         {
-            isJumping = true;
-            jumpTimer = timeToJump;
+            if (Input.GetKey("a") || Input.GetKey(KeyCode.LeftArrow))
+                Move(false);
+            else if (Input.GetKey("d") || Input.GetKey(KeyCode.RightArrow))
+                Move(true);
+
+            if (Input.GetKeyDown(KeyCode.Space) && !isJumping && isGrounded())
+            {
+                isJumping = true;
+                jumpTimer = timeToJump;
+            }
+
+            if (Input.GetKey(KeyCode.Space) && isJumping)
+                Jump();
+            if (Input.GetKeyUp(KeyCode.Space))
+            {
+                isJumping = false;
+                jumpTimer = 0;
+            }
         }
-            
-        if (Input.GetKey(KeyCode.Space) && isJumping)
-            Jump();
-        if (Input.GetKeyUp(KeyCode.Space))
-        {
-            isJumping = false;
-            jumpTimer = 0;
-        }
+        
         if(rb.velocity.y > 0)
         {
             gameObject.layer = LayerMask.NameToLayer(jumpThroughLayer);

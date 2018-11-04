@@ -9,16 +9,19 @@ public class Player : MonoBehaviour {
     SpriteRenderer rend;
     public SceneManagerScript scenManager;
     
+    public List<GameObject> teachers;
     // Use this for initialization
     void Start ()
     {
         rend = GetComponent<SpriteRenderer>();
+        teachers.Add(gameObject);
+        print(teachers.Count);
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
-		
+        print(teachers.Count);
 	}
     IEnumerator FadeOut()
     {
