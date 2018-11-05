@@ -56,20 +56,18 @@ public class BiPolarEnemy : MonoBehaviour {
     {
         if(collision.gameObject.tag == "Player"&& !isDead)
         {
-            int teacherLength = collision.gameObject.GetComponent<Player>().teachers.Count;
-            print("Gotcha");
-            if(teacherLength == 0)
-            {
-                collision.gameObject.GetComponent<Player>().Die();
-            }
-            else
-            {
-                collision.gameObject.GetComponent<Player>().teachers.RemoveAt(teacherLength - 1);
-                isDead = true;
-                StartCoroutine(FadeOut());
-            }
-            
+            collision.gameObject.GetComponent<Player>().Die();
             speed = 0;
+        }
+        
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Teacher")
+        {
+            isDead = true;
+            speed = 0;
+            StartCoroutine(FadeOut());
         }
     }
 }
