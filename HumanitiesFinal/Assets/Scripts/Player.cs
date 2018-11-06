@@ -68,6 +68,10 @@ public class Player : MonoBehaviour {
         {
             Level2Rules();
         }
+        else if (SceneManager.GetActiveScene().name == "Level 3")
+        {
+            Level3Rules();
+        }
     }
     private void Level1Rules()
     {

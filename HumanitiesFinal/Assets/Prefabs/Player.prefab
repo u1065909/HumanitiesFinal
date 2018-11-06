@@ -66,7 +66,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1764670740824570}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.04, y: -2.36, z: -0.052734375}
+  m_LocalPosition: {x: 1.42, y: -1.86, z: -0.052734375}
   m_LocalScale: {x: 0.47936, y: 0.47936, z: 0.47936}
   m_Children:
   - {fileID: 4575818373895696}
@@ -130,8 +130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDead: 0
-  scenManager: {fileID: 0}
-  teachers: []
+  sceneManager: {fileID: 0}
 --- !u!114 &114882505419467080
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -143,7 +142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad7b9d20a9c15b24ba3015ef571f4c82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.05
+  speed: 8
   groundCheck: {fileID: 4575818373895696}
   layer:
     serializedVersion: 2
@@ -151,7 +150,7 @@ MonoBehaviour:
   jumpThroughLayer: PlayerJumpThrough
   playerLayer: Player
   timeToJump: 0.2
-  jumpForce: 25
+  jumpForce: 70
 --- !u!212 &212530459639749994
 SpriteRenderer:
   m_ObjectHideFlags: 1
