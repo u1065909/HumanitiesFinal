@@ -36,20 +36,6 @@ public class PlayerController : MonoBehaviour {
                 Move(false);
             else if (Input.GetKey("d") || Input.GetKey(KeyCode.RightArrow))
                 Move(true);
-
-            if (Input.GetKeyDown(KeyCode.Space) && !isJumping && isGrounded())
-            {
-                isJumping = true;
-                jumpTimer = timeToJump;
-            }
-
-            if (Input.GetKey(KeyCode.Space) && isJumping)
-                Jump();
-            if (Input.GetKeyUp(KeyCode.Space))
-            {
-                isJumping = false;
-                jumpTimer = 0;
-            }
         }
         
         if(rb.velocity.y > 0)
@@ -60,15 +46,33 @@ public class PlayerController : MonoBehaviour {
         {
             gameObject.layer = LayerMask.NameToLayer(playerLayer);
         }
+        if (Input.GetKeyDown(KeyCode.Space) && !isJumping && isGrounded())
+        {
+            isJumping = true;
+            jumpTimer = timeToJump;
+        }
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            isJumping = false;
+            jumpTimer = 0;
+        }
         //Debug.DrawRay(transform.position, -Vector3.up);
-	}
+    }
 
-    
+    void FixedUpdate()
+    {
+        if (!player.isDead)
+        {
+            if (Input.GetKey(KeyCode.Space) && isJumping)
+                Jump();
+            
+        }
+    }
     private void Jump()
     {
         if (jumpTimer > 0)
         {
-            rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Force);
+            rb.AddForce((transform.up*jumpForce), ForceMode2D.Force);
         }
         jumpTimer -= Time.deltaTime;
             
@@ -82,9 +86,9 @@ public class PlayerController : MonoBehaviour {
     private void Move(bool isRight)
     {
         if (isRight)
-            transform.position += new Vector3(speed, 0, 0);
+            transform.position += new Vector3(speed, 0, 0)*Time.deltaTime;
         else
-            transform.position -= new Vector3(speed, 0, 0);
+            transform.position -= new Vector3(speed, 0, 0)*Time.deltaTime;
     }
 
 }

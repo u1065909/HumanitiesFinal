@@ -788,7 +788,7 @@ Prefab:
     - target: {fileID: 114882505419467080, guid: 1de4fa7689a05b940abed950d8f41ec1,
         type: 2}
       propertyPath: speed
-      value: 0.2
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 61718835479339512, guid: 1de4fa7689a05b940abed950d8f41ec1,
         type: 2}
@@ -799,6 +799,11 @@ Prefab:
         type: 2}
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114882505419467080, guid: 1de4fa7689a05b940abed950d8f41ec1,
+        type: 2}
+      propertyPath: jumpForce
+      value: 70
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1de4fa7689a05b940abed950d8f41ec1, type: 2}
