@@ -27,8 +27,21 @@ public class SceneManagerScript : MonoBehaviour {
     {
 		
 	}
+    public void LoadNextScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void GoToMainMenu()
+    {
+        SceneManager.LoadScene(SceneManager.GetSceneByName("Main Menu").buildIndex);
+    }
     public void ReloadScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+    public void Exit()
+    {
+        Application.Quit();
     }
 }

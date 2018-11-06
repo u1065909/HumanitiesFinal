@@ -727,6 +727,11 @@ Prefab:
       propertyPath: scenManager
       value: 
       objectReference: {fileID: 450870895}
+    - target: {fileID: 114882505419467080, guid: 1de4fa7689a05b940abed950d8f41ec1,
+        type: 2}
+      propertyPath: speed
+      value: 0.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1de4fa7689a05b940abed950d8f41ec1, type: 2}
   m_IsPrefabAsset: 0
