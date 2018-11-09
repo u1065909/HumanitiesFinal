@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneManagerScript : MonoBehaviour {
 
-    public float timeToWaitBeforeTransition;
+    
     public static bool isCreated;
     private void Awake()
     {
@@ -27,9 +27,11 @@ public class SceneManagerScript : MonoBehaviour {
     {
 		
 	}
+    
     public void LoadNextScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        
     }
 
     public void GoToMainMenu()

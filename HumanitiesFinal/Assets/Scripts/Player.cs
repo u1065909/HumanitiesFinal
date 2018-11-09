@@ -6,22 +6,35 @@ using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour {
 
     public bool isDead = false;
-    
+    public bool isSafe = false;
+    private bool calledOnce = false;
     SpriteRenderer rend;
-    public SceneManagerScript sceneManager;
+    TimeManager timeManager;
+    SceneManagerScript sceneManager;
+    UiFader faderStartText;
+    UiFader faderEndText;
     
     
     // Use this for initialization
     void Start ()
     {
         rend = GetComponent<SpriteRenderer>();
+        timeManager = GameObject.FindGameObjectWithTag("TimeManager").GetComponent<TimeManager>();
+        sceneManager = GameObject.FindGameObjectWithTag("SceneManager").GetComponent<SceneManagerScript>();
+        faderStartText = GameObject.FindGameObjectWithTag("StartTextManager").GetComponent<UiFader>();
+        faderEndText = GameObject.FindGameObjectWithTag("EndTextManager").GetComponent<UiFader>();
+
+        if (timeManager != null)
+            StartCoroutine(timeManager.WaitBeforeGameStarts());
+        StartCoroutine(faderStartText.FadeInThenOut());
         
+
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
-        
+        CheckRules();
 	}
     IEnumerator FadeOut()
     {
@@ -34,16 +47,16 @@ public class Player : MonoBehaviour {
         }
 
     }
-    IEnumerator WaitTilLoadingScene()
+    IEnumerator WaitTilReloadingScene()
     {
-        yield return new WaitForSeconds(sceneManager.timeToWaitBeforeTransition);
+        yield return new WaitForSeconds(timeManager.timeBetweenReloadingScene);
         print("Ay");
         sceneManager.ReloadScene();
     }
 
     IEnumerator WaitTilLoadingNextScene()
     {
-        yield return new WaitForSeconds(sceneManager.timeToWaitBeforeTransition);
+        yield return new WaitForSeconds(timeManager.timeForTextToAppearAfterWinCondition);
         print("Ay");
         sceneManager.LoadNextScene();
     }
@@ -75,15 +88,28 @@ public class Player : MonoBehaviour {
     }
     private void Level1Rules()
     {
-        if (isDead)
+        if (isDead && !calledOnce)
         {
+            calledOnce = true;
             StartCoroutine(WaitTilLoadingNextScene());
+            print("StartFadeIn");
+            StartCoroutine(faderEndText.FadeInThenOut());
+            
         }
     }
 
     private void Level2Rules()
     {
-        
+        if (isDead&&!calledOnce)
+        {
+            calledOnce = true;
+            StartCoroutine(WaitTilReloadingScene());
+        }
+        if (isSafe)
+        {
+            StartCoroutine(WaitTilLoadingNextScene());
+            StartCoroutine(faderEndText.FadeInThenOut());
+        }
     }
 
     private void Level3Rules()

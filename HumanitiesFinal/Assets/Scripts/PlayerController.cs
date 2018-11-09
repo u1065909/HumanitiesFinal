@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour {
     private bool isJumping = false;
     private float jumpTimer;
     private Player player;
+    private TimeManager timeManager;
 
     // Use this for initialization
     void Start ()
@@ -24,39 +25,46 @@ public class PlayerController : MonoBehaviour {
         print(layer.value);
         rb = GetComponent<Rigidbody2D>();
         jumpTimer = timeToJump;
-        player = GetComponent<Player>();
+        player = gameObject.GetComponent<Player>();
+        timeManager = GameObject.FindGameObjectWithTag("TimeManager").GetComponent<TimeManager>();
+        if (timeManager == null)
+            throw new Exception("Must have gameObject with Type 'TimeManager'");
+
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
-        if(!player.isDead)
+        if (!timeManager.isTimeStopped)
         {
-            if (Input.GetKey("a") || Input.GetKey(KeyCode.LeftArrow))
-                Move(false);
-            else if (Input.GetKey("d") || Input.GetKey(KeyCode.RightArrow))
-                Move(true);
-        }
+
+            if(!player.isDead)
+            {
+                if (Input.GetKey("a") || Input.GetKey(KeyCode.LeftArrow))
+                    Move(false);
+                else if (Input.GetKey("d") || Input.GetKey(KeyCode.RightArrow))
+                    Move(true);
+            }
         
-        if(rb.velocity.y > 0)
-        {
-            gameObject.layer = LayerMask.NameToLayer(jumpThroughLayer);
+            if(rb.velocity.y > 0)
+            {
+                gameObject.layer = LayerMask.NameToLayer(jumpThroughLayer);
+            }
+            else
+            {
+                gameObject.layer = LayerMask.NameToLayer(playerLayer);
+            }
+            if (Input.GetKeyDown(KeyCode.Space) && !isJumping && isGrounded())
+            {
+                isJumping = true;
+                jumpTimer = timeToJump;
+            }
+            if (Input.GetKeyUp(KeyCode.Space))
+            {
+                isJumping = false;
+                jumpTimer = 0;
+            }
         }
-        else
-        {
-            gameObject.layer = LayerMask.NameToLayer(playerLayer);
-        }
-        if (Input.GetKeyDown(KeyCode.Space) && !isJumping && isGrounded())
-        {
-            isJumping = true;
-            jumpTimer = timeToJump;
-        }
-        if (Input.GetKeyUp(KeyCode.Space))
-        {
-            isJumping = false;
-            jumpTimer = 0;
-        }
-        //Debug.DrawRay(transform.position, -Vector3.up);
     }
 
     void FixedUpdate()

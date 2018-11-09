@@ -10,22 +10,29 @@ public class BiPolarEnemy : MonoBehaviour {
     public float range;
     private SpriteRenderer rend;
     private bool isDead = false;
+    private TimeManager timeManager;
 	// Use this for initialization
 	void Start ()
     {
         rend = gameObject.GetComponent<SpriteRenderer>();
-	}
+        timeManager = GameObject.FindGameObjectWithTag("TimeManager").GetComponent<TimeManager>();
+    }
 	
 	// Update is called once per frame
 	void Update ()
     {
-        if (Vector3.Distance(target.position, transform.position) < range)
+        if (!timeManager.isTimeStopped)
         {
-            ChasePlayer();
-        }
-        if(rend.material.color.a < 0)
-        {
-            Destroy(gameObject);
+            if (target.gameObject.GetComponent<Player>().isDead)
+                Destroy(this);
+            if (Vector3.Distance(target.position, transform.position) < range)
+            {
+                ChasePlayer();
+            }
+            if(rend.material.color.a < 0)
+            {
+                Destroy(gameObject);
+            }
         }
         
 	}
@@ -34,11 +41,11 @@ public class BiPolarEnemy : MonoBehaviour {
     {
         if(target.position.x > transform.position.x)
         {
-            transform.position += new Vector3(speed, 0, 0);
+            transform.position += new Vector3(speed*Time.deltaTime, 0, 0);
         }
         if(target.position.x < transform.position.x )
         {
-            transform.position -= new Vector3(speed, 0, 0);
+            transform.position -= new Vector3(speed*Time.deltaTime, 0, 0);
         }
     }
     IEnumerator FadeOut()

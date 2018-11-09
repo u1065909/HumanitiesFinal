@@ -8,31 +8,36 @@ public class GunEnemy : MonoBehaviour {
     public GameObject bullet;
     public bool facingRight;
     private float shotTimer;
-	// Use this for initialization
-	void Start ()
+    private TimeManager timeManager;
+    // Use this for initialization
+    void Start ()
     {
         shotTimer = shotDelay;
-	}
+        timeManager = GameObject.FindGameObjectWithTag("TimeManager").GetComponent<TimeManager>();
+    }
 	
 	// Update is called once per frame
 	void Update ()
     {
-        if(shotTimer < 0)
+        if (!timeManager.isTimeStopped)
         {
-            if(facingRight)
+            if(shotTimer < 0)
             {
-                GameObject bulletGameObject = Instantiate(bullet, new Vector3(transform.position.x + 1, transform.position.y), Quaternion.identity);
-                bulletGameObject.GetComponent<Bullet>().spawner = gameObject;
+                if(facingRight)
+                {
+                    GameObject bulletGameObject = Instantiate(bullet, new Vector3(transform.position.x + 1, transform.position.y), Quaternion.identity);
+                    bulletGameObject.GetComponent<Bullet>().spawner = gameObject;
+                }
+                else
+                {
+                    Instantiate(bullet, new Vector3(transform.position.x - 1, transform.position.y), Quaternion.identity);
+                }
+                shotTimer = shotDelay;
             }
             else
             {
-                Instantiate(bullet, new Vector3(transform.position.x - 1, transform.position.y), Quaternion.identity);
+                shotTimer -= Time.deltaTime;
             }
-            shotTimer = shotDelay;
-        }
-        else
-        {
-            shotTimer -= Time.deltaTime;
         }
 	}
    

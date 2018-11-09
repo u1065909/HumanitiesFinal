@@ -6,6 +6,11 @@ TagManager:
   tags:
   - Dead
   - Teacher
+  - TimeManager
+  - SceneManager
+  - BackgroundUiManager
+  - EndTextManager
+  - StartTextManager
   layers:
   - Default
   - TransparentFX
