@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour {
         if (!timeManager.isTimeStopped)
         {
 
-            if(!player.isDead)
+            if(!player.isDead && !player.isSafe)
             {
                 if (Input.GetKey("a") || Input.GetKey(KeyCode.LeftArrow))
                     Move(false);

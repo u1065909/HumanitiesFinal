@@ -51,4 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a7b6e62930cbde4484cfbbb913de43e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeForTextToAppear: 0
+  timeForTextToAppear: 2
+  timeForTextToAppearAfterWinCondition: 3
+  timeBetweenReloadingScene: 0
+  isTimeStopped: 0
