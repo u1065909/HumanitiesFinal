@@ -23,7 +23,7 @@ public class Player : MonoBehaviour {
         sceneManager = GameObject.FindGameObjectWithTag("SceneManager").GetComponent<SceneManagerScript>();
         faderStartText = GameObject.FindGameObjectWithTag("StartTextManager").GetComponent<UiFader>();
         faderEndText = GameObject.FindGameObjectWithTag("EndTextManager").GetComponent<UiFader>();
-
+        calledOnce = false;
         if (timeManager != null)
             StartCoroutine(timeManager.WaitBeforeGameStarts());
         StartCoroutine(faderStartText.FadeInThenOut());
@@ -105,9 +105,11 @@ public class Player : MonoBehaviour {
             calledOnce = true;
             StartCoroutine(WaitTilReloadingScene());
         }
-        if (isSafe)
+        if (isSafe&& !calledOnce)
         {
+            calledOnce = true;
             StartCoroutine(WaitTilLoadingNextScene());
+            print("SFwef");
             StartCoroutine(faderEndText.FadeInThenOut());
         }
     }

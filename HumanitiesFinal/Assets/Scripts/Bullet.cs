@@ -41,9 +41,16 @@ public class Bullet : MonoBehaviour {
     {
         if(collision.gameObject.tag == "Player")
         {
+            
             Destroy(gameObject);
             player.GetComponent<Player>().Die();
         }
+        if (collision.gameObject.tag == "Wall")
+        {
+            print("Sdfwef");
+            Destroy(gameObject);
+        }
+
 
     }
 }

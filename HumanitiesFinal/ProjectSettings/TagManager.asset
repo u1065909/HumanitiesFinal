@@ -11,6 +11,7 @@ TagManager:
   - BackgroundUiManager
   - EndTextManager
   - StartTextManager
+  - Wall
   layers:
   - Default
   - TransparentFX

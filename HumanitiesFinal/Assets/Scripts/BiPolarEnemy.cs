@@ -23,7 +23,7 @@ public class BiPolarEnemy : MonoBehaviour {
     {
         if (!timeManager.isTimeStopped)
         {
-            if (target.gameObject.GetComponent<Player>().isDead)
+            if (target.gameObject.GetComponent<Player>().isDead || target.gameObject.GetComponent<Player>().isSafe)
                 Destroy(this);
             if (Vector3.Distance(target.position, transform.position) < range)
             {
