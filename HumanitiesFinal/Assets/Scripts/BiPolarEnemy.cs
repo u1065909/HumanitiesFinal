@@ -72,6 +72,7 @@ public class BiPolarEnemy : MonoBehaviour {
     {
         if (collision.gameObject.tag == "Teacher")
         {
+            collision.gameObject.GetComponent<Teacher>().killedEnemy = true;
             isDead = true;
             speed = 0;
             StartCoroutine(FadeOut());

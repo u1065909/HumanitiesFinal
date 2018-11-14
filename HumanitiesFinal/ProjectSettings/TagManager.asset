@@ -12,6 +12,7 @@ TagManager:
   - EndTextManager
   - StartTextManager
   - Wall
+  - PlayerDeadRulesFlag
   layers:
   - Default
   - TransparentFX

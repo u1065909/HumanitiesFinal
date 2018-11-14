@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Teacher : MonoBehaviour {
 
+    public bool killedEnemy = false;
 	// Use this for initialization
 	void Start ()
     {
@@ -11,7 +12,8 @@ public class Teacher : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
 		
 	}
 }

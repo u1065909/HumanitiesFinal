@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -7,12 +8,14 @@ public class Player : MonoBehaviour {
 
     public bool isDead = false;
     public bool isSafe = false;
+
     private bool calledOnce = false;
     SpriteRenderer rend;
     TimeManager timeManager;
     SceneManagerScript sceneManager;
     UiFader faderStartText;
     UiFader faderEndText;
+    Teacher teacher;
     
     
     // Use this for initialization
@@ -27,8 +30,7 @@ public class Player : MonoBehaviour {
         if (timeManager != null)
             StartCoroutine(timeManager.WaitBeforeGameStarts());
         StartCoroutine(faderStartText.FadeInThenOut());
-        
-
+        teacher = GameObject.FindGameObjectWithTag("Teacher").GetComponent<Teacher>();
 	}
 	
 	// Update is called once per frame
@@ -50,20 +52,17 @@ public class Player : MonoBehaviour {
     IEnumerator WaitTilReloadingScene()
     {
         yield return new WaitForSeconds(timeManager.timeBetweenReloadingScene);
-        print("Ay");
         sceneManager.ReloadScene();
     }
 
     IEnumerator WaitTilLoadingNextScene()
     {
         yield return new WaitForSeconds(timeManager.timeForTextToAppearAfterWinCondition);
-        print("Ay");
         sceneManager.LoadNextScene();
     }
 
     public void Die()
     {
-        print("Dead");
         gameObject.tag = "Dead";
         isDead = true;
         StartCoroutine(FadeOut());
@@ -73,9 +72,9 @@ public class Player : MonoBehaviour {
 
     private void CheckRules()
     {
-        if (SceneManager.GetActiveScene().name == "Level 1")
+        if (GameObject.FindGameObjectWithTag("PlayerDeadRulesFlag") != null)
         {
-            Level1Rules();
+            PlayerDeadRules();
         }
         else if (SceneManager.GetActiveScene().name == "Level 2")
         {
@@ -86,14 +85,12 @@ public class Player : MonoBehaviour {
             Level3Rules();
         }
     }
-    private void Level1Rules()
+    private void PlayerDeadRules()
     {
         if (isDead && !calledOnce)
         {
             calledOnce = true;
-            StartCoroutine(WaitTilLoadingNextScene());
-            print("StartFadeIn");
-            StartCoroutine(faderEndText.FadeInThenOut());
+            LoadNextScene();
             
         }
     }
@@ -105,17 +102,30 @@ public class Player : MonoBehaviour {
             calledOnce = true;
             StartCoroutine(WaitTilReloadingScene());
         }
-        if (isSafe&& !calledOnce)
+        if (isSafe && !calledOnce)
         {
             calledOnce = true;
-            StartCoroutine(WaitTilLoadingNextScene());
-            print("SFwef");
-            StartCoroutine(faderEndText.FadeInThenOut());
+            LoadNextScene();
         }
     }
 
     private void Level3Rules()
     {
+        if(teacher == null)
+        {
+            throw new Exception("Need teacher for this level");
+        }
+        
+        if (teacher.killedEnemy && !calledOnce)
+        {
+            calledOnce = true;
+            LoadNextScene();
+        }
+    }
 
+    private void LoadNextScene()
+    {
+        StartCoroutine(WaitTilLoadingNextScene());
+        StartCoroutine(faderEndText.FadeInThenOut());
     }
 }
