@@ -22,7 +22,6 @@ public class PlayerController : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
-        print(layer.value);
         rb = GetComponent<Rigidbody2D>();
         jumpTimer = timeToJump;
         player = gameObject.GetComponent<Player>();

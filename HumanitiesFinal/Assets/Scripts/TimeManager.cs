@@ -22,7 +22,6 @@ public class TimeManager : MonoBehaviour {
         
         yield return new WaitForSeconds(timeForTextToAppear);
         isTimeStopped = false;
-        print("TimeAfter" + Time.timeScale);
     }
     // Update is called once per frame
     void Update () {
