@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour {
     public string playerLayer;
     public float timeToJump;
     public float jumpForce;
+    public bool facingRight;
     private Rigidbody2D rb;
     private bool isJumping = false;
     private float jumpTimer;
@@ -28,6 +29,7 @@ public class PlayerController : MonoBehaviour {
         timeManager = GameObject.FindGameObjectWithTag("TimeManager").GetComponent<TimeManager>();
         if (timeManager == null)
             throw new Exception("Must have gameObject with Type 'TimeManager'");
+        facingRight = true;
 
 	}
 	
@@ -40,9 +42,15 @@ public class PlayerController : MonoBehaviour {
             if(!player.isDead && !player.isSafe)
             {
                 if (Input.GetKey("a") || Input.GetKey(KeyCode.LeftArrow))
+                {
                     Move(false);
+                    facingRight = false;
+                }
                 else if (Input.GetKey("d") || Input.GetKey(KeyCode.RightArrow))
+                {
                     Move(true);
+                    facingRight = true;
+                }
             }
         
             if(rb.velocity.y > 0)
