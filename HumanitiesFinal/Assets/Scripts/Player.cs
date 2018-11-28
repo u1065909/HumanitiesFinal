@@ -9,6 +9,7 @@ public class Player : MonoBehaviour {
     public bool isDead = false;
     public bool isSafe = false;
 
+    
     private bool calledOnce = false;
     SpriteRenderer rend;
     TimeManager timeManager;
@@ -76,13 +77,21 @@ public class Player : MonoBehaviour {
         {
             PlayerDeadRules();
         }
-        else if (SceneManager.GetActiveScene().name == "Level 2")
+        else if (GameObject.FindGameObjectWithTag("PlayerSafeRuleFlag") != null)
         {
             Level2Rules();
         }
-        else if (SceneManager.GetActiveScene().name == "Level 3")
+        else if (SceneManager.GetActiveScene().name == "Part 1 lvl 3")
         {
             Level3Rules();
+        }
+        else if (faderStartText.sceneWithOnlyText)
+        {
+
+            if (faderStartText.goToNextScene)
+            {
+                LoadNextScene();
+            }
         }
     }
     private void PlayerDeadRules()
@@ -115,7 +124,6 @@ public class Player : MonoBehaviour {
         {
             throw new Exception("Need teacher for this level");
         }
-        
         if (teacher.killedEnemy && !calledOnce)
         {
             calledOnce = true;

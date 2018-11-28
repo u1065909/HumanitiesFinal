@@ -13,6 +13,7 @@ TagManager:
   - StartTextManager
   - Wall
   - PlayerDeadRulesFlag
+  - PlayerSafeRuleFlag
   layers:
   - Default
   - TransparentFX
@@ -50,15 +51,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: In Front
-    uniqueID: 335368933
-    locked: 0
-  - name: Pillar
-    uniqueID: 4140748629
-    locked: 0
   - name: Background
     uniqueID: 3988108439
     locked: 0
   - name: arch
     uniqueID: 3019311491
+    locked: 0
+  - name: In Front
+    uniqueID: 335368933
+    locked: 0
+  - name: Pillar
+    uniqueID: 4140748629
     locked: 0

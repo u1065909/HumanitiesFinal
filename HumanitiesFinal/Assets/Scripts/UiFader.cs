@@ -7,6 +7,12 @@ public class UiFader : MonoBehaviour {
     public CanvasGroup textCanvasGroup;
     public float timeForTextToFadeIn;
     public float timeForTextToFadeOut;
+    //If true then this scene only has text, this being the first of possibly multiple texts
+    public bool sceneWithOnlyText;
+    //This only applies if sceneWithOnlyText is true, determines which text will appear last before moving on
+    public bool lastTextOnScreen;
+    public bool goToNextScene;
+    private bool textFinished = false;
 
     public float timeForTextToAppear;
 	public void FadeIn()
@@ -33,11 +39,19 @@ public class UiFader : MonoBehaviour {
                 break;
             yield return new WaitForEndOfFrame();
         }
+        if (textFinished)
+        {
+            goToNextScene = true;
+        }
     }
     public IEnumerator FadeInThenOut()
     {
         FadeIn();
         yield return new WaitForSeconds(timeForTextToAppear);
+        if (lastTextOnScreen)
+        {
+            textFinished = true;
+        }
         FadeOut();
     }
 }
