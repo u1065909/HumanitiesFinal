@@ -275,7 +275,7 @@ Prefab:
     - target: {fileID: 114304190758641594, guid: 8fba6a3653ca8984290861aac3de57e5,
         type: 2}
       propertyPath: m_FontData.m_FontSize
-      value: 28
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 114304190758641594, guid: 8fba6a3653ca8984290861aac3de57e5,
         type: 2}
@@ -285,7 +285,7 @@ Prefab:
     - target: {fileID: 114428587373320458, guid: 8fba6a3653ca8984290861aac3de57e5,
         type: 2}
       propertyPath: m_FontData.m_FontSize
-      value: 28
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 114428587373320458, guid: 8fba6a3653ca8984290861aac3de57e5,
         type: 2}
