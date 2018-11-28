@@ -481,8 +481,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 335368933
-  m_SortingLayer: 1
+  m_SortingLayerID: -306858857
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 649475f047dadb24d807aa2f8537582b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -502,7 +502,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 693289144}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.83, y: -2.533, z: -0}
+  m_LocalPosition: {x: 2.3, y: -2.38, z: -0}
   m_LocalScale: {x: 0.531398, y: 0.46993244, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -547,6 +547,21 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 20523003436932726, guid: a169d9d6e7754aa44b83807daba376a9,
+        type: 2}
+      propertyPath: m_BackGroundColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 20523003436932726, guid: a169d9d6e7754aa44b83807daba376a9,
+        type: 2}
+      propertyPath: m_BackGroundColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 20523003436932726, guid: a169d9d6e7754aa44b83807daba376a9,
+        type: 2}
+      propertyPath: m_BackGroundColor.b
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a169d9d6e7754aa44b83807daba376a9, type: 2}
   m_IsPrefabAsset: 0
@@ -559,6 +574,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1389527366}
   - component: {fileID: 1389527365}
+  - component: {fileID: 1389527367}
   m_Layer: 0
   m_Name: boundries (1)
   m_TagString: Untagged
@@ -619,12 +635,37 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1389527364}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.488348, y: 0.903, z: 0}
+  m_LocalPosition: {x: 10.96, y: 1.06, z: 0}
   m_LocalScale: {x: 1, y: 2.097, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1389527367
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1389527364}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.62, y: 4.64}
+    newSize: {x: 1.62, y: 4.64}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.62, y: 4.64}
+  m_EdgeRadius: 0
 --- !u!1 &1396782239
 GameObject:
   m_ObjectHideFlags: 0
@@ -634,6 +675,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1396782241}
   - component: {fileID: 1396782240}
+  - component: {fileID: 1396782242}
   m_Layer: 0
   m_Name: boundries
   m_TagString: Untagged
@@ -694,12 +736,37 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1396782239}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.441758, y: 1.148, z: 0}
+  m_LocalPosition: {x: -10.82, y: 1.14, z: 0}
   m_LocalScale: {x: 1, y: 2.197, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1396782242
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1396782239}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.62, y: 4.64}
+    newSize: {x: 1.62, y: 4.64}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.62, y: 4.64}
+  m_EdgeRadius: 0
 --- !u!1001 &1595896749
 Prefab:
   m_ObjectHideFlags: 0

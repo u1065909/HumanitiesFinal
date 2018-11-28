@@ -56,3 +56,9 @@ TagManager:
   - name: Pillar
     uniqueID: 4140748629
     locked: 0
+  - name: Background
+    uniqueID: 3988108439
+    locked: 0
+  - name: arch
+    uniqueID: 3019311491
+    locked: 0

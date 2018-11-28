@@ -53,14 +53,6 @@ public class PlayerController : MonoBehaviour {
                 }
             }
         
-            if(rb.velocity.y > 0)
-            {
-                gameObject.layer = LayerMask.NameToLayer(jumpThroughLayer);
-            }
-            else
-            {
-                gameObject.layer = LayerMask.NameToLayer(playerLayer);
-            }
             if (Input.GetKeyDown(KeyCode.Space) && !isJumping && isGrounded())
             {
                 isJumping = true;
