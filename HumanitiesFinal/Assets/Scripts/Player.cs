@@ -8,7 +8,7 @@ public class Player : MonoBehaviour {
 
     public bool isDead = false;
     public bool isSafe = false;
-
+    public Pillar pillar;
     
     private bool calledOnce = false;
     SpriteRenderer rend;
@@ -79,7 +79,7 @@ public class Player : MonoBehaviour {
         }
         else if (GameObject.FindGameObjectWithTag("PlayerSafeRuleFlag") != null)
         {
-            Level2Rules();
+            PlayerSafeRules();
         }
         else if (SceneManager.GetActiveScene().name == "Part 1 lvl 3")
         {
@@ -104,7 +104,7 @@ public class Player : MonoBehaviour {
         }
     }
 
-    private void Level2Rules()
+    private void PlayerSafeRules()
     {
         if (isDead&&!calledOnce)
         {
@@ -113,6 +113,11 @@ public class Player : MonoBehaviour {
         }
         if (isSafe && !calledOnce)
         {
+            if (pillar.fadeOnSafe)
+            {
+                StartCoroutine(FadeOut());
+
+            }
             calledOnce = true;
             LoadNextScene();
         }

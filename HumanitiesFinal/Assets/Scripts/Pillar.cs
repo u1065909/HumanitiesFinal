@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Pillar : MonoBehaviour {
 
+    public bool fadeOnSafe = false;
 	// Use this for initialization
 	void Start ()
     {
