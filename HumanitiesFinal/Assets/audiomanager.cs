@@ -4,30 +4,23 @@ using UnityEngine;
 
 public class audiomanager : MonoBehaviour
 {
-
+    public AudioClip clip;
+    public AudioSource source;
     public Sound[] sounds;
-
+    public static bool isCreated;
     // Use this for initialization
     void Awake()
     {
-        foreach (Sound s in sounds)
+        if (!isCreated)
         {
-            s.source = gameObject.AddComponent<AudioSource>();
-            s.source.clip = s.clip;
-
-            s.source.volume = s.volume;
-            s.source.pitch = s.pitch;
-
+            DontDestroyOnLoad(gameObject);
+            isCreated = true;
         }
+        source.clip = clip;
     }
 
     private void Start()
     {
-        Play("Theme");
-    }
-    public void Play(string name)
-    {
-        Array.Find(sounds, sound => sound.name == name);
-       
+        source.Play();
     }
 }
