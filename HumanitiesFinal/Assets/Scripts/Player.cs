@@ -81,9 +81,17 @@ public class Player : MonoBehaviour {
         {
             PlayerSafeRules();
         }
-        else if (SceneManager.GetActiveScene().name == "Part 1 lvl 3")
+        else if (GameObject.FindGameObjectWithTag("EnemyDeadRuleFlag")!= null)
         {
-            Level3Rules();
+            EnemyDeadRules();
+        }
+        else if(GameObject.FindGameObjectWithTag("DadRulesFlag") != null)
+        {
+            DadRules();
+        }
+        else if(GameObject.FindGameObjectWithTag("Kid") != null)
+        {
+            KidRules();
         }
         else if (faderStartText.sceneWithOnlyText)
         {
@@ -123,9 +131,14 @@ public class Player : MonoBehaviour {
         }
     }
 
-    private void Level3Rules()
+    private void EnemyDeadRules()
     {
-        if(teacher == null)
+        if (isDead && !calledOnce)
+        {
+            calledOnce = true;
+            StartCoroutine(WaitTilReloadingScene());
+        }
+        if (teacher == null)
         {
             throw new Exception("Need teacher for this level");
         }
@@ -134,6 +147,26 @@ public class Player : MonoBehaviour {
             calledOnce = true;
             LoadNextScene();
         }
+    }
+
+    private void DadRules()
+    {
+        if (isDead && !calledOnce)
+        {
+            calledOnce = true;
+            StartCoroutine(WaitTilReloadingScene());
+        }
+        if(GameObject.FindGameObjectWithTag("Dad") == null&&!calledOnce)
+        {
+            print("Done");
+            calledOnce = true;
+            LoadNextScene();
+        }
+    }
+
+    private void KidRules()
+    {
+
     }
 
     private void LoadNextScene()

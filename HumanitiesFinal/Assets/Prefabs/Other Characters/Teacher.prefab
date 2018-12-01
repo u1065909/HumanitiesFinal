@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212303233895895750}
   m_Layer: 0
   m_Name: teacher
-  m_TagString: Teacher
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -37,6 +37,7 @@ GameObject:
   - component: {fileID: 4765054419732816}
   - component: {fileID: 212698166384278376}
   - component: {fileID: 61878619293929084}
+  - component: {fileID: 114687482833494012}
   m_Layer: 0
   m_Name: Teacher
   m_TagString: Teacher
@@ -96,6 +97,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &114687482833494012
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1999517700905914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3819a5911bcb2064fb23573a9391f26a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  killedEnemy: 0
 --- !u!212 &212303233895895750
 SpriteRenderer:
   m_ObjectHideFlags: 1

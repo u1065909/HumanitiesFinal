@@ -70,8 +70,10 @@ public class BiPolarEnemy : MonoBehaviour {
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        print("Sdfwe");
         if (collision.gameObject.tag == "Teacher")
         {
+            gameObject.tag = "Dead";
             collision.gameObject.GetComponent<Teacher>().killedEnemy = true;
             isDead = true;
             speed = 0;

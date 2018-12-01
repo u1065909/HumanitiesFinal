@@ -57,6 +57,18 @@ EditorBuildSettings:
     path: Assets/Scenes/Part 4 lvl 2.unity
     guid: caf31bf492befe74193ad8cb55bfcfc9
   - enabled: 1
+    path: Assets/Scenes/Part 4 lvl 3 Story Mode part 1.unity
+    guid: 716eb487959932844ba6f460dfde0a06
+  - enabled: 1
+    path: Assets/Scenes/Part 4 lvl 3 Story Mode part 2.unity
+    guid: 9842361b4f4b873429a00c77a357f069
+  - enabled: 1
+    path: Assets/Scenes/Part 4 lvl 3 Story Mode part 3.unity
+    guid: 48f886e55d3793b45915af3086f6bb33
+  - enabled: 1
     path: Assets/Scenes/Part 4 lvl 3.unity
     guid: e1fe5d595956b4543a2ef118f3a871e1
+  - enabled: 1
+    path: Assets/Scenes/Part 5 44- present.unity
+    guid: 8aa5cf6870926834180311474923c3e5
   m_configObjects: {}
