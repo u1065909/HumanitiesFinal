@@ -365,6 +365,16 @@ Prefab:
       propertyPath: textCanvasGroup
       value: 
       objectReference: {fileID: 1067877962}
+    - target: {fileID: 114744730204428592, guid: 06b30681d1420134790d85a8cc628065,
+        type: 2}
+      propertyPath: sceneWithOnlyText
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114744730204428592, guid: 06b30681d1420134790d85a8cc628065,
+        type: 2}
+      propertyPath: lastTextOnScreen
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06b30681d1420134790d85a8cc628065, type: 2}
   m_IsPrefabAsset: 0

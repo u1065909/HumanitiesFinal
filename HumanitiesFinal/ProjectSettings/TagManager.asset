@@ -18,6 +18,7 @@ TagManager:
   - DadRulesFlag
   - EnemyDeadRuleFlag
   - Kid
+  - KidTouched
   layers:
   - Default
   - TransparentFX

@@ -17,26 +17,36 @@ public class Player : MonoBehaviour {
     UiFader faderStartText;
     UiFader faderEndText;
     Teacher teacher;
-    
+    KidTouched kidTouched;
     
     // Use this for initialization
     void Start ()
     {
+        
         rend = GetComponent<SpriteRenderer>();
         timeManager = GameObject.FindGameObjectWithTag("TimeManager").GetComponent<TimeManager>();
         sceneManager = GameObject.FindGameObjectWithTag("SceneManager").GetComponent<SceneManagerScript>();
         faderStartText = GameObject.FindGameObjectWithTag("StartTextManager").GetComponent<UiFader>();
         faderEndText = GameObject.FindGameObjectWithTag("EndTextManager").GetComponent<UiFader>();
         calledOnce = false;
+        print("Hay");
         if (timeManager != null)
+        {
+            print("In here");
             StartCoroutine(timeManager.WaitBeforeGameStarts());
+
+        }
         StartCoroutine(faderStartText.FadeInThenOut());
-        teacher = GameObject.FindGameObjectWithTag("Teacher").GetComponent<Teacher>();
-	}
+        if(GameObject.FindGameObjectWithTag("Teacher").GetComponent<Teacher>() != null)
+            teacher = GameObject.FindGameObjectWithTag("Teacher").GetComponent<Teacher>();
+        if (GameObject.FindGameObjectWithTag("KidTouched").GetComponent<Teacher>() != null)
+            kidTouched = GameObject.FindGameObjectWithTag("KidTouched").GetComponent<KidTouched>();
+    }
 	
 	// Update is called once per frame
 	void Update ()
     {
+        
         CheckRules();
 	}
     IEnumerator FadeOut()
@@ -166,7 +176,11 @@ public class Player : MonoBehaviour {
 
     private void KidRules()
     {
-
+        if(kidTouched.isDone && !calledOnce)
+        {
+            calledOnce = true;
+            LoadNextScene();
+        }
     }
 
     private void LoadNextScene()
