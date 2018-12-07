@@ -137,7 +137,7 @@ TextMesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 46277670}
-  m_Text: Text 3
+  m_Text: Sad
   m_OffsetZ: 0.12
   m_CharacterSize: 1
   m_LineSpacing: 1
@@ -263,7 +263,7 @@ TextMesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 584717757}
-  m_Text: Text 1
+  m_Text: Inconsolable
   m_OffsetZ: 0.12
   m_CharacterSize: 1
   m_LineSpacing: 1
@@ -851,9 +851,24 @@ Prefab:
     - target: {fileID: 114304190758641594, guid: 8fba6a3653ca8984290861aac3de57e5,
         type: 2}
       propertyPath: m_Text
-      value: '
+      value: 'Life felt...
 
 '
+      objectReference: {fileID: 0}
+    - target: {fileID: 114304190758641594, guid: 8fba6a3653ca8984290861aac3de57e5,
+        type: 2}
+      propertyPath: m_FontData.m_Alignment
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114304190758641594, guid: 8fba6a3653ca8984290861aac3de57e5,
+        type: 2}
+      propertyPath: m_FontData.m_FontSize
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 114304190758641594, guid: 8fba6a3653ca8984290861aac3de57e5,
+        type: 2}
+      propertyPath: m_FontData.m_MinSize
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8fba6a3653ca8984290861aac3de57e5, type: 2}
@@ -954,7 +969,7 @@ TextMesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1547218175}
-  m_Text: Text 2
+  m_Text: Empty
   m_OffsetZ: 0.12
   m_CharacterSize: 1
   m_LineSpacing: 1
@@ -1381,12 +1396,12 @@ Prefab:
     - target: {fileID: 114350205514862964, guid: 6f649cb9b33dcf142b45c9adec544652,
         type: 2}
       propertyPath: timeForTextToFadeOut
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 114350205514862964, guid: 6f649cb9b33dcf142b45c9adec544652,
         type: 2}
       propertyPath: timeForTextToFadeIn
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114350205514862964, guid: 6f649cb9b33dcf142b45c9adec544652,
         type: 2}
@@ -1398,6 +1413,11 @@ Prefab:
       propertyPath: textCanvasGroup
       value: 
       objectReference: {fileID: 1510393003}
+    - target: {fileID: 114350205514862964, guid: 6f649cb9b33dcf142b45c9adec544652,
+        type: 2}
+      propertyPath: sceneWithOnlyText
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f649cb9b33dcf142b45c9adec544652, type: 2}
   m_IsPrefabAsset: 0
