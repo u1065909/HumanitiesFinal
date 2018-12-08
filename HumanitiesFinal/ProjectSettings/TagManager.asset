@@ -19,6 +19,7 @@ TagManager:
   - EnemyDeadRuleFlag
   - Kid
   - KidTouched
+  - KidController
   layers:
   - Default
   - TransparentFX

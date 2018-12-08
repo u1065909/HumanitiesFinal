@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4251390449801564}
   - component: {fileID: 212868037390318020}
   - component: {fileID: 61089949796224464}
-  - component: {fileID: 114078400696265064}
+  - component: {fileID: 114426341457218914}
   m_Layer: 0
   m_Name: keekee
   m_TagString: Untagged
@@ -289,18 +289,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.25, y: 1.04}
   m_EdgeRadius: 0
---- !u!114 &114078400696265064
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1117743939922022}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 491d11c7c45b09544867e8e72446c672, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerController: {fileID: 0}
 --- !u!114 &114264405729305398
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -314,6 +302,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDead: 0
   isSafe: 0
+  pillar: {fileID: 0}
+--- !u!114 &114426341457218914
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1117743939922022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0017d4b2f10085d4eb08d22fd34c0eb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114562465931512060
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -325,7 +325,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 491d11c7c45b09544867e8e72446c672, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerController: {fileID: 0}
+  target: {fileID: 0}
+  timeToWaitThenRun: 0
+  speed: 0
 --- !u!114 &114570685771948992
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -337,7 +339,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 491d11c7c45b09544867e8e72446c672, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerController: {fileID: 0}
+  target: {fileID: 0}
+  timeToWaitThenRun: 0
+  speed: 0
 --- !u!114 &114900549758296072
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -438,7 +442,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 335368933
-  m_SortingLayer: 1
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 9a938c92369e3e541b892226b80b3a13, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

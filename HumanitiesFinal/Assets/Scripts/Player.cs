@@ -37,10 +37,11 @@ public class Player : MonoBehaviour {
 
         }
         StartCoroutine(faderStartText.FadeInThenOut());
-        if(GameObject.FindGameObjectWithTag("Teacher").GetComponent<Teacher>() != null)
+        if(GameObject.FindGameObjectWithTag("Teacher") != null)
             teacher = GameObject.FindGameObjectWithTag("Teacher").GetComponent<Teacher>();
-        if (GameObject.FindGameObjectWithTag("KidTouched").GetComponent<Teacher>() != null)
+        if (GameObject.FindGameObjectWithTag("KidTouched") != null)
             kidTouched = GameObject.FindGameObjectWithTag("KidTouched").GetComponent<KidTouched>();
+        print(kidTouched);
     }
 	
 	// Update is called once per frame

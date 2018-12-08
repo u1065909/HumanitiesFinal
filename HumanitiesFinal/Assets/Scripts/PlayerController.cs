@@ -41,12 +41,12 @@ public class PlayerController : MonoBehaviour {
 
             if(!player.isDead && !player.isSafe)
             {
-                if (Input.GetKey("a") || Input.GetKey(KeyCode.LeftArrow))
+                if (Input.GetKey("a"))
                 {
                     Move(false);
                     facingRight = false;
                 }
-                else if (Input.GetKey("d") || Input.GetKey(KeyCode.RightArrow))
+                else if (Input.GetKey("d"))
                 {
                     Move(true);
                     facingRight = true;
